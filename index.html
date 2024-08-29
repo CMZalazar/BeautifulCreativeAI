@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KJLP5C7QJY"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	  
+	  //Con estas líneas se setea la URL y el título para todas las páginas.
+	  gtag('set', { 'page_location': 'https://beautifulcreativeai.000webhostapp.com/test2' });
+	  gtag('set', { 'page_title': 'Mi sitio web (test2)' });
+	  
+	  gtag('config', 'G-KJLP5C7QJY', {
+		'user_id': 111222
+	  });
+	  
+	  gtag('config', 'G-Z5L2L0XH72');
+	  
+	  
+	</script>
+
+    <title>Mi sitio web</title>
+    <link rel="stylesheet" type="text/css" href="style/style_home.css">
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+		
+		/* Button: Me Gusta */
+		  var likeButton = document.querySelector('.like-button');
+		  likeButton.addEventListener('click', function() {
+			alert('¡Te gusta este video!');
+			gtag('event', 'click', {
+				'click_detail': 'Me Gusta',
+				'business_flow': 'Home IA',
+				'send_to': 'G-KJLP5C7QJY'
+			  });
+		  });
+		  
+		/* Button: No Me Gusta */  
+		  var dislikeButton = document.querySelector('.dislike-button');
+		  dislikeButton.addEventListener('click', function() {
+			alert('¡No te gusta este video!');
+			gtag('event', 'click', {
+				'click_detail': 'No Me Gusta',
+				'business_flow': 'Home IA',
+				'send_to': 'G-Z5L2L0XH72'
+			  });
+		  });
+		  
+		});
+		
+		  // 2. This code loads the IFrame Player API code asynchronously.
+		  var tag = document.createElement('script');
+
+		  tag.src = "https://www.youtube.com/iframe_api";
+		  var firstScriptTag = document.getElementsByTagName('script')[0];
+		  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+		  // 3. This function creates an <iframe> (and YouTube player)
+		  //    after the API code downloads.
+		  var player;
+		  function onYouTubeIframeAPIReady() {
+			player = new YT.Player('player', {
+			  height: '315',
+			  width: '560',
+			  videoId: 'dQw4w9WgXcQ',
+			  events: {
+				'onReady': onPlayerReady,
+				'onStateChange': onPlayerStateChange
+			  }
+			});
+		  }
+
+		  // 4. The API will call this function when the video player is ready.
+		  function onPlayerReady(event) {
+			event.target.playVideo();
+		  }
+
+		  // 5. The API calls this function when the player's state changes.
+		  //    The function indicates that when playing a video (state=1),
+		  //    the player should play for six seconds and then stop.
+		  var done = false;
+		  function onPlayerStateChange(event) {
+			if (event.data == YT.PlayerState.PLAYING && !done) {
+			  setTimeout(stopVideo, 6000);
+			  done = true;
+			}
+		  }
+		  function stopVideo() {
+			player.stopVideo();
+		  }
+	</script>
+	<script>
+	  // Este evento custom termina duplicandose con el page_view de recolección automática.
+	  gtag('event', 'page_view', {
+		'page_location': 'https://beautifulcreativeai.000webhostapp.com/test',
+		'page_title': 'Mi sitio web (test)'
+	  });
+	</script>
+
+  </head>
+
+
+  <body>
+    <header>
+      <h1>Bienvenidos a mi sitio web</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Acerca de</a></li>
+		  <li><a href="buscador.html">Buscador</a></li>
+          <li><a href="contacto.html">Contáctanos</a></li>
+        </ul>
+
+      </nav>
+    </header>
+    
+    <main>
+      <h2>Contenido principal</h2>
+	  <p>¡Bienvenidos a mi sitio web! Este es un sitio web básico creado con HTML y CSS.</p>
+      
+	  <!-- Esta forma de implementar un video no desencadena los eventos de video de GA4. -->
+	  <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div><br />
+	  
+	  <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+	  <div id="player"></div>
+	  
+      <div class="feedback">
+        <button class="like-button"><img src="img\thumb-up.png" alt="Me Gusta" />Me Gusta</button>
+        <button class="dislike-button"><img src="img\thumb-down.png" alt="No Me Gusta" />No Me Gusta</button>
+      </div><br />
+
+	  <div>
+		<a href="https://www.google.com">Ir a Google</a>
+	  </div><br />
+
+	  <div>
+		<a href="file/Webinar_Compromiso_y_Responsabilidad.pdf" download>Descargar archivo PDF</a>
+	  </div><br />
+ 
+	  
+    </main>
+	
+    <footer>
+      <p>© 2023 - Todos los derechos reservados</p>
+    </footer>
+  </body>
+</html>
