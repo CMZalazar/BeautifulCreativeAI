@@ -36,7 +36,19 @@
 				'business_flow': 'Home IA',
 				'send_to': 'G-KJLP5C7QJY'
 			  });
-		  });
+			gtag('event', 'page_view', {
+				'page_location': window.location.origin + window.location.pathname,
+				'page_title': 'My Campaigns',
+				'source': 'prueba_source',
+				'medium': 'prueba_medium',
+				'campaign': 'prueba_campaign',
+				'term': 'prueba_term',
+				'content': 'prueba_content',
+				'source_platform': 'prueba_source_platform',
+				'creative_format': 'prueba_creative_format',
+				'marketing_tactic': 'prueba_marketing_tactic'			
+	  			});
+			  });
 		  
 		/* Button: No Me Gusta */  
 		  var dislikeButton = document.querySelector('.dislike-button');
